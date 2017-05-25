@@ -2,9 +2,19 @@
 var express = require('express');
 
 var app = express();
-var server = app.listen(3000);
+var server = require('http').createServer(app);
 
-app.use(express.static('public'));
+/*
+app.get('/', function(req, res,next){
+	res.sendFile(__dirname + '/public/index.html');
+});
+*/
+
+app.use(express.static(__dirname + '/public'));
+
+server.listen(process.env.PORT || 3000, function(){
+	console.log('listening on *:3000');
+});
 
 console.log("My socket server is running");
 
