@@ -1,8 +1,8 @@
 
 var express = require('express');
-
+	http = require('http');
 var app = express();
-var server = require('http').createServer(app);
+var server = http.createServer(app);
 var io = require('socket.io')(server);
 
 /*
@@ -13,7 +13,7 @@ app.get('/', function(req, res,next){
 
 app.use(express.static(__dirname + '/public'));
 
-server.listen(process.env.PORT || 3000, function(){
+server.listen(app.get('port') || 3000, function(){
 	console.log('listening on *:3000');
 });
 
