@@ -3,6 +3,7 @@ var express = require('express');
 
 var app = express();
 var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 /*
 app.get('/', function(req, res,next){
@@ -18,9 +19,9 @@ server.listen(process.env.PORT || 3000, function(){
 
 console.log("My socket server is running");
 
-var socket = require('socket.io');
+/*var socket = require('socket.io');
 
-var io = socket(server);
+var io = socket(server);*/
 
 io.sockets.on('connection', newConnection);
 
