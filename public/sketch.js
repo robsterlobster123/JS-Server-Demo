@@ -41,6 +41,7 @@ $(".box").mouseenter(function(){
 		osc[id].amp(.5, .2);
 		//osc[id].freq(midiToFreq(random(notes)));
 		socket.emit('noteOnToServer', id);
+		console.log(id);
 	});
 $(".box").mouseleave(function(){
 	$(this).css("background-color", randomColor({
